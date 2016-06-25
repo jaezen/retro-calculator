@@ -82,6 +82,18 @@ class ViewController: UIViewController {
         processOperation(currentOperation)
     }
     
+    //it just clears out all the data fields so you can start again
+    @IBAction func onClearPressed(sender: AnyObject) {
+        processOperation(currentOperation)
+        currentOperation = Operation.Empty
+        leftValStr = ""
+        rightValStr = ""
+        result = ""
+        outputLbl.text = ("0")
+    }
+    
+    
+    
     func processOperation(op: Operation) {
         playSound()
         
@@ -104,6 +116,7 @@ class ViewController: UIViewController {
                     result = "\(Double(leftValStr)! + Double(rightValStr)!)"
                 }
                 
+                
                 leftValStr = result
                 outputLbl.text = result
             }
@@ -120,11 +133,9 @@ class ViewController: UIViewController {
             currentOperation = op
         }
         
+    
         
     }
-    
-    
-    
     
     
     func playSound() {
@@ -134,6 +145,7 @@ class ViewController: UIViewController {
         
         btnSound.play()
     }
+    
     
     }
 
